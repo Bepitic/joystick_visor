@@ -1,0 +1,156 @@
+{
+    "Axis": [
+        {
+            "isButton": true,
+            "isTrigger": false,
+            "pathButtonPresed": "resources/a0_pressed.png",
+            "pathButtonReleased": "resources/a0_released.png",
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 300.0
+        },
+        {
+            "isButton": true,
+            "isTrigger": false,
+            "pathButtonPresed": "resources/a1_pressed.png",
+            "pathButtonReleased": "resources/a1_released.png",
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 300.0
+        },
+        {
+            "isButton": true,
+            "isTrigger": false,
+            "pathButtonPresed": "resources/a2_pressed.png",
+            "pathButtonReleased": "resources/a2_released.png",
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 300.0
+        },
+        {
+            "isButton": true,
+            "isTrigger": false,
+            "pathButtonPresed": "resources/a3_pressed.png",
+            "pathButtonReleased": "resources/a3_released.png",
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 300.0
+        },
+        {
+            "isButton": true,
+            "isTrigger": false,
+            "pathButtonPresed": "resources/a4_pressed.png",
+            "pathButtonReleased": "resources/a4_released.png",
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 300.0
+        },
+        {
+            "isButton": true,
+            "isTrigger": false,
+            "pathButtonPresed": "resources/a5_pressed.png",
+            "pathButtonReleased": "resources/a5_released.png",
+            "scale": 1.0,
+            "x": 600.0,
+            "y": 150.0
+        }
+    ],
+    "Button": [
+        {
+            "pathButtonPresed": "resources/b0_pressed.png",
+            "pathButtonReleased": "resources/b0_released.png",
+            "scale": 1.0,
+            "x": 205.0,
+            "y": 150.0
+        },
+        {
+            "pathButtonPresed": "resources/b1_pressed.png",
+            "pathButtonReleased": "resources/b1_released.png",
+            "scale": 1.0,
+            "x": 410.0,
+            "y": 150.0
+        },
+        {
+            "pathButtonPresed": "resources/b2_pressed.png",
+            "pathButtonReleased": "resources/b2_released.png",
+            "scale": 1.0,
+            "x": 205.0,
+            "y": 7.0
+        },
+        {
+            "pathButtonPresed": "resources/b3_pressed.png",
+            "pathButtonReleased": "resources/b3_released.png",
+            "scale": 1.0,
+            "x": 410.0,
+            "y": 7.0
+        },
+        {
+            "pathButtonPresed": "resources/b4_pressed.png",
+            "pathButtonReleased": "resources/b4_released.png",
+            "scale": 1.0,
+            "x": 600.0,
+            "y": 7.0
+        },
+        {
+            "pathButtonPresed": "resources/b5_pressed.png",
+            "pathButtonReleased": "resources/b5_released.png",
+            "scale": 1.0,
+            "x": 600.0,
+            "y": 7.0
+        },
+        {
+            "pathButtonPresed": "resources/b6_pressed.png",
+            "pathButtonReleased": "resources/b6_released.png",
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 0.0
+        },
+        {
+            "pathButtonPresed": "resources/b7_pressed.png",
+            "pathButtonReleased": "resources/b7_released.png",
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 0.0
+        },
+        {
+            "pathButtonPresed": "resources/b8_pressed.png",
+            "pathButtonReleased": "resources/b8_released.png",
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 0.0
+        },
+        {
+            "pathButtonPresed": "resources/b9_pressed.png",
+            "pathButtonReleased": "resources/b9_released.png",
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 0.0
+        },
+        {
+            "pathButtonPresed": "resources/b10_pressed.png",
+            "pathButtonReleased": "resources/b10_released.png",
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 0.0
+        }
+    ],
+    "Hat": [
+        {
+            "pathCENTERED": "resources/Stick-5.png",
+            "pathDOWN": "resources/Stick-2.png",
+            "pathLEFT": "resources/Stick-4.png",
+            "pathLEFTDOWN": "resources/Stick-1.png",
+            "pathLEFTUP": "resources/Stick-7.png",
+            "pathRIGHT": "resources/Stick-6.png",
+            "pathRIGHTDOWN": "resources/Stick-3.png",
+            "pathRIGHTUP": "resources/Stick-9.png",
+            "pathUP": "resources/Stick-8.png",
+            "scale": 1.0,
+            "x": 0.0,
+            "y": 0.0
+        }
+    ],
+    "h": 600,
+    "title": "JoystickVision",
+    "w": 800
+}
