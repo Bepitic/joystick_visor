@@ -74,6 +74,7 @@ int main(int argv, char** args)
           j["Hat"][i]["pathLEFTDOWN"] = "resources/b"+ std::to_string(i) + "_LEFTDOWN.png";
           j["Hat"][i]["pathDOWN"] = "resources/b"+ std::to_string(i) + "_DOWN.png";
           j["Hat"][i]["pathRIGHTDOWN"] = "resources/b"+ std::to_string(i) + "_RIGHTDOWN.png";
+          j["Hat"][i]["pathBase"] = "resources/b"+ std::to_string(i) + "_base.png";
         }
         std::ofstream f (std::string(SDL_JoystickNameForIndex(0)) +".json");
         f << std::setw(4) << j << std::endl;
@@ -84,11 +85,11 @@ int main(int argv, char** args)
 
       std::vector<sf::Texture> text_vector_button(j["Button"].size()*2);
       std::vector<sf::Texture> text_vector_axis(j["Axis"].size()*2);
-      std::vector<sf::Texture> text_vector_hat(j["Hat"].size()*9);
+      std::vector<sf::Texture> text_vector_hat(j["Hat"].size()*10);
 
       std::vector<sf::Sprite> sprite_vector_button(j["Button"].size()*2);
       std::vector<sf::Sprite> sprite_vector_axis(j["Axis"].size()*2);
-      std::vector<sf::Sprite> sprite_vector_hat(j["Hat"].size()*9);
+      std::vector<sf::Sprite> sprite_vector_hat(j["Hat"].size()*10);
 
 
       if (SDL_NumJoysticks() > 0) {
@@ -103,6 +104,8 @@ int main(int argv, char** args)
         sprite_vector_button[i*2+1].setTexture(text_vector_button[i*2+1]);
         sprite_vector_button[i*2].setPosition(sf::Vector2f(j["Button"].at(i)["x"],j["Button"].at(i)["y"]));
         sprite_vector_button[i*2+1].setPosition(sf::Vector2f(j["Button"].at(i)["x"],j["Button"].at(i)["y"]));
+        sprite_vector_button[i*2].setScale(sf::Vector2f(j["Button"].at(i)["scale"],j["Button"].at(i)["scale"]));
+        sprite_vector_button[i*2+1].setScale(sf::Vector2f(j["Button"].at(i)["scale"],j["Button"].at(i)["scale"]));
       }
 
       for( int i = 0; i < j["Axis"].size(); i++){
@@ -112,44 +115,61 @@ int main(int argv, char** args)
         sprite_vector_axis[i*2+1].setTexture(text_vector_axis[i*2+1]);
         sprite_vector_axis[i*2].setPosition(sf::Vector2f(j["Axis"].at(i)["x"],j["Axis"].at(i)["y"]));
         sprite_vector_axis[i*2+1].setPosition(sf::Vector2f(j["Axis"].at(i)["x"],j["Axis"].at(i)["y"]));
+        sprite_vector_axis[i*2].setScale(sf::Vector2f(j["Axis"].at(i)["scale"],j["Axis"].at(i)["scale"]));
+        sprite_vector_axis[i*2+1].setScale(sf::Vector2f(j["Axis"].at(i)["scale"],j["Axis"].at(i)["scale"]));
       }
 
       for( int i = 0; i < j["Hat"].size(); i++){
 
-        text_vector_hat[i*9].loadFromFile(j["Hat"].at(i)["pathLEFTUP"]);
-        text_vector_hat[i*9+1].loadFromFile(j["Hat"].at(i)["pathUP"]);
-        text_vector_hat[i*9+2].loadFromFile(j["Hat"].at(i)["pathRIGHTUP"]);
-        text_vector_hat[i*9+3].loadFromFile(j["Hat"].at(i)["pathLEFT"]);
-        text_vector_hat[i*9+4].loadFromFile(j["Hat"].at(i)["pathCENTERED"]);
-        text_vector_hat[i*9+5].loadFromFile(j["Hat"].at(i)["pathRIGHT"]);
-        text_vector_hat[i*9+6].loadFromFile(j["Hat"].at(i)["pathLEFTDOWN"]);
-        text_vector_hat[i*9+7].loadFromFile(j["Hat"].at(i)["pathDOWN"]);
-        text_vector_hat[i*9+8].loadFromFile(j["Hat"].at(i)["pathRIGHTDOWN"]);
+        text_vector_hat[i*10].loadFromFile(j["Hat"].at(i)["pathLEFTUP"]);
+        text_vector_hat[i*10+1].loadFromFile(j["Hat"].at(i)["pathUP"]);
+        text_vector_hat[i*10+2].loadFromFile(j["Hat"].at(i)["pathRIGHTUP"]);
+        text_vector_hat[i*10+3].loadFromFile(j["Hat"].at(i)["pathLEFT"]);
+        text_vector_hat[i*10+4].loadFromFile(j["Hat"].at(i)["pathCENTERED"]);
+        text_vector_hat[i*10+5].loadFromFile(j["Hat"].at(i)["pathRIGHT"]);
+        text_vector_hat[i*10+6].loadFromFile(j["Hat"].at(i)["pathLEFTDOWN"]);
+        text_vector_hat[i*10+7].loadFromFile(j["Hat"].at(i)["pathDOWN"]);
+        text_vector_hat[i*10+8].loadFromFile(j["Hat"].at(i)["pathRIGHTDOWN"]);
+        text_vector_hat[i*10+9].loadFromFile(j["Hat"].at(i)["pathBase"]);
 
-        sprite_vector_hat[i*9].setTexture(text_vector_hat[i*9]);
-        sprite_vector_hat[i*9+1].setTexture(text_vector_hat[i*9+1]);
-        sprite_vector_hat[i*9+2].setTexture(text_vector_hat[i*9+2]);
-        sprite_vector_hat[i*9+3].setTexture(text_vector_hat[i*9+3]);
-        sprite_vector_hat[i*9+4].setTexture(text_vector_hat[i*9+4]);
-        sprite_vector_hat[i*9+5].setTexture(text_vector_hat[i*9+5]);
-        sprite_vector_hat[i*9+6].setTexture(text_vector_hat[i*9+6]);
-        sprite_vector_hat[i*9+7].setTexture(text_vector_hat[i*9+7]);
-        sprite_vector_hat[i*9+8].setTexture(text_vector_hat[i*9+8]);
+        sprite_vector_hat[i*10].setTexture(text_vector_hat[i*10]);
+        sprite_vector_hat[i*10+1].setTexture(text_vector_hat[i*10+1]);
+        sprite_vector_hat[i*10+2].setTexture(text_vector_hat[i*10+2]);
+        sprite_vector_hat[i*10+3].setTexture(text_vector_hat[i*10+3]);
+        sprite_vector_hat[i*10+4].setTexture(text_vector_hat[i*10+4]);
+        sprite_vector_hat[i*10+5].setTexture(text_vector_hat[i*10+5]);
+        sprite_vector_hat[i*10+6].setTexture(text_vector_hat[i*10+6]);
+        sprite_vector_hat[i*10+7].setTexture(text_vector_hat[i*10+7]);
+        sprite_vector_hat[i*10+8].setTexture(text_vector_hat[i*10+8]);
+        sprite_vector_hat[i*10+9].setTexture(text_vector_hat[i*10+9]);
 
-        sprite_vector_hat[i*9].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
-        sprite_vector_hat[i*9+1].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
-        sprite_vector_hat[i*9+2].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
-        sprite_vector_hat[i*9+3].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
-        sprite_vector_hat[i*9+4].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
-        sprite_vector_hat[i*9+5].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
-        sprite_vector_hat[i*9+6].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
-        sprite_vector_hat[i*9+7].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
-        sprite_vector_hat[i*9+8].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
+        sprite_vector_hat[i*10].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
+        sprite_vector_hat[i*10+1].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
+        sprite_vector_hat[i*10+2].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
+        sprite_vector_hat[i*10+3].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
+        sprite_vector_hat[i*10+4].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
+        sprite_vector_hat[i*10+5].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
+        sprite_vector_hat[i*10+6].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
+        sprite_vector_hat[i*10+7].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
+        sprite_vector_hat[i*10+8].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
+        sprite_vector_hat[i*10+9].setPosition(sf::Vector2f(j["Hat"].at(i)["x"],j["Hat"].at(i)["y"]));
+
+        sprite_vector_hat[i*10].setScale(sf::Vector2f(j["Hat"].at(i)["scale"],j["Hat"].at(i)["scale"]));
+        sprite_vector_hat[i*10+1].setScale(sf::Vector2f(j["Hat"].at(i)["scale"],j["Hat"].at(i)["scale"]));
+        sprite_vector_hat[i*10+2].setScale(sf::Vector2f(j["Hat"].at(i)["scale"],j["Hat"].at(i)["scale"]));
+        sprite_vector_hat[i*10+3].setScale(sf::Vector2f(j["Hat"].at(i)["scale"],j["Hat"].at(i)["scale"]));
+        sprite_vector_hat[i*10+4].setScale(sf::Vector2f(j["Hat"].at(i)["scale"],j["Hat"].at(i)["scale"]));
+        sprite_vector_hat[i*10+5].setScale(sf::Vector2f(j["Hat"].at(i)["scale"],j["Hat"].at(i)["scale"]));
+        sprite_vector_hat[i*10+6].setScale(sf::Vector2f(j["Hat"].at(i)["scale"],j["Hat"].at(i)["scale"]));
+        sprite_vector_hat[i*10+7].setScale(sf::Vector2f(j["Hat"].at(i)["scale"],j["Hat"].at(i)["scale"]));
+        sprite_vector_hat[i*10+8].setScale(sf::Vector2f(j["Hat"].at(i)["scale"],j["Hat"].at(i)["scale"]));
+        sprite_vector_hat[i*10+9].setScale(sf::Vector2f(j["Hat"].at(i)["scale"],j["Hat"].at(i)["scale"]));
+
       }
 //---------------- ventana
 
       while (window.isOpen()){
-        window.clear(sf::Color::Black);
+        window.clear(sf::Color::Magenta);
         std::cout << "joysticks han sido encontrados :" << SDL_NumJoysticks() << std::endl;
 
         if (joy) {
@@ -177,33 +197,34 @@ int main(int argv, char** args)
           }
 
           for (int i = 0; i < SDL_JoystickNumHats(joy); i++) {
+            window.draw(sprite_vector_hat[i*10+9]);
             switch (SDL_JoystickGetHat(joy,i)) {
               case SDL_HAT_LEFTUP:
-                window.draw(sprite_vector_hat[i*9]);
+                window.draw(sprite_vector_hat[i*10]);
                 break;
               case SDL_HAT_UP:
-                window.draw(sprite_vector_hat[i*9+1]);
+                window.draw(sprite_vector_hat[i*10+1]);
                 break;
               case SDL_HAT_RIGHTUP:
-                window.draw(sprite_vector_hat[i*9+2]);
+                window.draw(sprite_vector_hat[i*10+2]);
                 break;
               case SDL_HAT_LEFT:
-                window.draw(sprite_vector_hat[i*9+3]);
+                window.draw(sprite_vector_hat[i*10+3]);
                 break;
               case SDL_HAT_CENTERED:
-                window.draw(sprite_vector_hat[i*9+4]);
+                window.draw(sprite_vector_hat[i*10+4]);
                 break;
               case SDL_HAT_RIGHT:
-                window.draw(sprite_vector_hat[i*9+5]);
+                window.draw(sprite_vector_hat[i*10+5]);
                 break;
               case SDL_HAT_LEFTDOWN:
-                window.draw(sprite_vector_hat[i*9+6]);
+                window.draw(sprite_vector_hat[i*10+6]);
                 break;
               case SDL_HAT_DOWN:
-                window.draw(sprite_vector_hat[i*9+7]);
+                window.draw(sprite_vector_hat[i*10+7]);
                 break;
               case SDL_HAT_RIGHTDOWN:
-                window.draw(sprite_vector_hat[i*9+8]);
+                window.draw(sprite_vector_hat[i*10+8]);
                 break;
 
             }
